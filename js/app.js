@@ -21,8 +21,14 @@ class Citas {
         this.citas = [...this.citas, cita];
     }
 
+    // .filter va a quitar un elemento en base a una condición
     eliminarCita(id) {
         this.citas = this.citas.filter( cita => cita.id !== id);
+    }
+
+    // .map va a editar un elemento y nos retorna un nuevo arreglo que se asigna a citas
+    editarCita(citaActualiza) {
+        this.citas = this.citas.map( cita => cita.id === citaActualiza.id ? citaActualiza : cita);
     }
 }
 
@@ -182,13 +188,14 @@ function nuevaCita(e) {
         ui.imprimirAlerta('Editado Correctamente');
 
         // Pasar el objeto de la cita a edición
+        administrarCitas.editarCita({...citaObj});
 
-
+        // Regresar el texto del botón a su estado original
         formulario.querySelector('button[type="submit"]').textContent = 'Crear Cita';
 
         // Quitar modo edición
         editando = false;
-        
+
     } else {
         // Generar un id único
          citaObj.id = Date.now();
