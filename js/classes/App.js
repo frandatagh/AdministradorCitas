@@ -1,31 +1,36 @@
-import { datosCita, nuevaCita } from '../funciones.js';
-import { 
+import { datosCita, nuevaCita, baseDatos } from "../funciones.js";
+import {
     mascotaInput,
     propietarioInput,
     telefonoInput,
     fechaInput,
     horaInput,
     sintomasInput,
-    formulario 
-} from '../selectores.js';
+    formulario
+} from "../selectores.js";
 
 class App {
-
     constructor() {
         this.initApp();
     }
 
     initApp() {
-        mascotaInput.addEventListener('input', datosCita);
-        propietarioInput.addEventListener('input', datosCita);
-        telefonoInput.addEventListener('input', datosCita);
-        fechaInput.addEventListener('input', datosCita);
-        horaInput.addEventListener('input', datosCita);
-        sintomasInput.addEventListener('input', datosCita);
+        baseDatos();
 
-        //Formulario para nuevas citas
-        formulario.addEventListener('submit', nuevaCita );
+        
+        mascotaInput.addEventListener('change', datosCita);
+        propietarioInput.addEventListener('change', datosCita);
+        telefonoInput.addEventListener('change', datosCita);
+        fechaInput.addEventListener('change', datosCita);
+        horaInput.addEventListener('change', datosCita);
+        sintomasInput.addEventListener('change', datosCita);
+
+        //formulario para nuevas citas
+        formulario.addEventListener('submit', nuevaCita);
+
     }
+
 }
+
 
 export default App;

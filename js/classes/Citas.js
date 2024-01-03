@@ -1,24 +1,16 @@
-class Citas {
+// CLasses
+export class Citas {
     constructor() {
-        this.citas = [];
+        this.citas = []
     }
-
-    agregarCita(cita){
+    agregarCita(cita) {
         this.citas = [...this.citas, cita];
     }
-
-    // .map va a editar un elemento y nos retorna un nuevo arreglo que se asigna a citas
-    editarCita(citaActualiza) {
-        this.citas = this.citas.map( cita => cita.id === citaActualiza.id ? citaActualiza : cita);
+    editarCita(citaActualizada) {
+        this.citas = this.citas.map(cita => cita.id === citaActualizada.id ? citaActualizada : cita)
     }
 
-
-    // .filter va a quitar un elemento en base a una condición
     eliminarCita(id) {
-        this.citas = this.citas.filter( cita => cita.id !== id);
+        this.citas = this.citas.filter(cita => cita.id !== id);
     }
-
-    
 }
-
-export default Citas;
